@@ -3,14 +3,14 @@ def kayıt_ol():
     kullanici_adi=input("Kullanıcı adı oluşturun: ") 
     sifre=input("Şifre oluşturun: ") 
     with open("kullanicilar.txt","a", encoding="utf8") as dosya: 
-        dosya.write(f"{kullanici_adi}:{sifre}")  
+        dosya.write(f"{kullanici_adi}:{sifre}\n")  
     print("Kayıt başarıyla tamamlandı.") 
 
 def giris_yap(): 
     print("\n----------GİRİŞ YAP----------") 
     kullanici_adi=input("Kullanıcı adınızı giriniz: ") 
     sifre=input("Şifrenizi girinz: ") 
-    aranan_kelime= f"{kullanici_adi}:{sifre}\n"
+    aranan_kelime= f"{kullanici_adi}:{sifre}"
     giris_basarili_mi=False
     with open("kullanicilar.txt", "r",encoding="utf8") as dosya:
         for i in dosya:
