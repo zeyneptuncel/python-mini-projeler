@@ -12,7 +12,17 @@ def sesli_harf_say(metin):
         i+=1   
     return sonuc
 
-cevap=sesli_harf_say(metin)
-print(cevap)
+def gizli_kod(metin):
+
+    metin=metin.replace("e","3")
+    metin=metin.replace("a","@")
+    return(metin)
+
+
+sesli_harf_sayisi=sesli_harf_say(metin)
+gizli_kod=gizli_kod(metin)
+
+print("Sesli harf sayısı: ",sesli_harf_sayisi)
+print(f"Gizli Kod: {gizli_kod}")
 
 
