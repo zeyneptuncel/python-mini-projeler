@@ -10,15 +10,27 @@ while True:
                 
     def not_oku():
         kisi=input("Notlarını görüntülümek istediğiniz öğrenci adını giriniz: ")
+        with open("ders_notlari.txt","r", encoding="utf8") as dosya:
+            satirlar = dosya.readlines()
+            bulundu_mu=False
+            for satir in satirlar:
+                if kisi.lower() in satir.lower():
+                    bilgiler=satir.split(":")
+                    isim=bilgiler[0]
+                    notlar =bilgiler[1].split(",")
+                    print(f"\nÖğrenci Adı: {isim}\nNot1: {notlar[0]}\nNot2: {notlar[1]}")
+                    bulundu_mu=True
+                    break
+            if bulundu_mu==False:
+                print("Bu öğrencinin bilgileri kayıtlı değil! ")
 
   
     def ort_hesapla():
         print("Şuan yapım aşamasında")
 
-
-    secim=input("\n-----Hoş Geldiniz-----\n"
+    secim=input("\n-----Öğrenci Bilgi Sistemi-----\n"
     "1-Not Gir\n" \
-    "2-Notları Oku\n" \
+    "2-Not Oku\n" \
     "3-Ortalama_hesapla\n" \
     "q-Çıkış Yap\n" \
     "Yapmak istediğiniz işlemi seçiniz: ")
