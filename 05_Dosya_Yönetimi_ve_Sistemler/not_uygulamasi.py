@@ -24,9 +24,24 @@ while True:
             if bulundu_mu==False:
                 print("Bu öğrencinin bilgileri kayıtlı değil! ")
 
-  
     def ort_hesapla():
-        print("Şuan yapım aşamasında")
+        kisi=input("Ortalamasını görüntülümek istediğiniz öğrenci adını giriniz: ")
+        with open("ders_notlari.txt","r", encoding="utf8") as dosya:
+            satirlar = dosya.readlines()
+            bulundu_mu=False
+            for satir in satirlar:
+                if kisi.lower() in satir.lower():
+                    bilgiler=satir.split(":")
+                    isim=bilgiler[0]
+                    notlar =bilgiler[1].split(",")
+                    not1=int(notlar[0])
+                    not2=int(notlar[1])
+                    print(f"\nÖğrenci Adı: {isim}\nOrtalama: {(not1+not2)/2}")
+                    bulundu_mu=True
+                    break
+            if bulundu_mu==False:
+                print("Bu öğrencinin bilgileri kayıtlı değil! ")
+
 
     secim=input("\n-----Öğrenci Bilgi Sistemi-----\n"
     "1-Not Gir\n" \
